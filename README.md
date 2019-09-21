@@ -56,9 +56,13 @@ bash scripts/train.sh [GPU id]
 
 - Perform DALI's data augmentation
 	1. Train the word embeddings
-		bash scripts/train-embed.sh
+	```
+	bash scripts/train-embed.sh
+	```
 	2. Train the crosslingual embeddings
-		bash scripts/train-muse.sh
+	```
+	bash scripts/train-muse.sh
+	```
 	3. Obtain the word translation by nearest neighbor search
 	4. Perform word-for-word back-translation
 
