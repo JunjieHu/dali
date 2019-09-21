@@ -22,15 +22,27 @@ If you use the codes in this repo, please cite our [ACL2019 paper](https://www.a
 
 Installation
 ==
-- scipy-1.3.1
-- fastText
-- MUSE
+- Anaconda environment
+```
+conda env create --file conda-dali-env.txt
+```
 
+- fastText
 ```
 git clone https://github.com/facebookresearch/fastText.git
+```
+- MUSE
+```
 git clone https://github.com/facebookresearch/MUSE.git
 cd MUSE
 git checkout 16d5183
+```
+
+- Install fairseq
+```
+git clone https://github.com/pytorch/fairseq.git
+cd fairseq/
+git checkout v0.3.0-723-g851c022
 ```
 
 Downloads
