@@ -6,3 +6,7 @@
 	path = fastText
 	url = https://github.com/facebookresearch/fastText.git
 	branch = master
+[submodule "fairseq"]
+	path = fairseq
+	url = https://github.com/pytorch/fairseq.git
+	branch = master
