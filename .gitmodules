@@ -2,3 +2,7 @@
 	path = MUSE
 	url = https://github.com/facebookresearch/MUSE.git
 	branch = master
+[submodule "fastText"]
+	path = fastText
+	url = https://github.com/facebookresearch/fastText.git
+	branch = master
