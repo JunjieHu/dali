@@ -44,12 +44,12 @@ cd MUSE/data/ && bash get_evaluation.sh && cd ../..
 
 Downloads
 ==
-The preprocessed data and pre-trained models can be found [here](https://drive.google.com/drive/folders/18KMC9OwXgbopKFlK1SIYvuvBJg7RIM7B?usp=sharing).
+The preprocessed data and pre-trained models can be found [here](https://drive.google.com/drive/folders/18KMC9OwXgbopKFlK1SIYvuvBJg7RIM7B?usp=sharing). Extract ***dataset.tar.gz*** under the ***dali*** directory. Extract ***{data-bin, it-de-en-epoch40, it2emea-de-en}.tar.gz*** under the ***dali/outputs*** directory.
 
-- dataset.tar.gz: train/dev/test data in five domains: it, emea, acquis, koran, subtitles.
-- data-bin.tar.gz: fairseq's binarized data.
-- it-de-en-epoch40.tar.gz: fairseq's transformer model pre-trained on data in the it domain.
-- it2emea-de-en.tar.gz: fairseq's transformer model adapted from it domain to emea domain using DALI-U.
+- ***dataset.tar.gz***: train/dev/test data in five domains: it, emea, acquis, koran, subtitles.
+- ***data-bin.tar.gz***: fairseq's binarized data.
+- ***it-de-en-epoch40.tar.gz***: fairseq's transformer model pre-trained on data in the it domain.
+- ***it2emea-de-en.tar.gz***: fairseq's transformer model adapted from it domain to emea domain using DALI-U.
 
 Demo
 ==
