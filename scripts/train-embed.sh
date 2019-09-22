@@ -1,26 +1,14 @@
 repo=$PWD
 data_dir=$repo/dataset/
 
-
-# Install fastText
-echo "Install fastText"
-git clone https://github.com/facebookresearch/fastText.git
-cd fastText
-mkdir -p ${HOME}/opt/
-mkdir build && cd build && cmake -D CMAKE_INSTALL_PREFIX:PATH=${HOME}/opt/ ..
-make && make install
-cd $repo
-
-
 # combine unaligned monolingual data in both languages
 echo "combine monolingual data"
 cat ${data_dir}/*-train.tc.clean.en.mono > ${data_dir}/all-train.tc.clean.mono.en
 cat ${data_dir}/*-train.tc.clean.de.mono > ${data_dir}/all-train.tc.clean.mono.de
 prefix=all-train.tc.clean.mono
 
-
 # train embeddings on all the unaligned monolingual data in two languages
-fasttext="${HOME}/opt/bin/fasttext"
+fasttext="$repo/fastText/build/fasttext"
 out_dir="$repo/embed/"
 mkdir -p $out_dir 
 for lang in de en; do  

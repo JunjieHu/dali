@@ -27,22 +27,19 @@ Installation
 conda env create --file conda-dali-env.txt
 ```
 
-- fastText
-```
-git clone https://github.com/facebookresearch/fastText.git
-```
-- MUSE
-```
-git clone https://github.com/facebookresearch/MUSE.git
-cd MUSE
-git checkout 16d5183
-```
-
 - Install fairseq
 ```
-git clone https://github.com/pytorch/fairseq.git
-cd fairseq/
-git checkout v0.3.0-723-g851c022
+cd fairseq && pip install --editable . && cd ..
+```
+
+- Install fastText
+```
+cd fastText && mkdir build && cd build && cmake .. && make && cd ../..
+```
+
+- Download MUSE's dictionary
+```
+cd MUSE/data/ && bash get_evaluation.sh && cd ../..
 ```
 
 Downloads
@@ -71,12 +68,27 @@ bash scripts/train.sh [GPU id]
 	```
 	bash scripts/train-embed.sh
 	```
-	2. Train the crosslingual embeddings
+	2. Train the crosslingual embeddings by supervised lexicon induction
 	```
+	bash scripts/train-muse.sh [path to supervised seed lexicon]
+	```
+	3. Train the crosslingual embeddings by unsupervised lexicon induction
+	``` 
 	bash scripts/train-muse.sh
 	```
 	3. Obtain the word translation by nearest neighbor search
+	```
+	python3 extract_lexicon.py \
+	  --src_emb $PWD/outputs/unsupervised-muse/debug/v1/vectors-de.txt \
+    	  --tgt_emb $PWD/outputs/unsupervised-muse/debug/v1/vectors-en.txt \
+    	  --output $PWD/outputs/unsupervised-muse/debug/v1/S2T+T2S-de-en.lex \
+     	  --dico_build "S2T&T2S"
+	```
 	4. Perform word-for-word back-translation
+	```
+	bash scripts/wfw_backtranslation.sh 
+	```	
+	
 
 - Preprocess the data in the target (emea) domain 
 ```
@@ -88,3 +100,11 @@ bash scripts/preprocess-da.sh
 bash scripts/train-da-opt.sh
 ```
 
+- Translate the test1 set in the emea domain
+```
+bash scripts/translate.sh \
+  outputs/it-de-en-epoch40/checkpoint_best.pt \
+  outputs/it-de-en-epoch40/decode-test1-best.txt \
+  outputs/data-bin-join/it \
+  test1
+```
