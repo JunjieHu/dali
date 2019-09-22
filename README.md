@@ -80,9 +80,9 @@ bash scripts/train.sh [GPU id]
 	```
 	python3 extract_lexicon.py \
 	  --src_emb $PWD/outputs/unsupervised-muse/debug/v1/vectors-de.txt \
-    	  --tgt_emb $PWD/outputs/unsupervised-muse/debug/v1/vectors-en.txt \
-    	  --output $PWD/outputs/unsupervised-muse/debug/v1/S2T+T2S-de-en.lex \
-     	  --dico_build "S2T&T2S"
+	  --tgt_emb $PWD/outputs/unsupervised-muse/debug/v1/vectors-en.txt \
+	  --output $PWD/outputs/unsupervised-muse/debug/v1/S2T+T2S-de-en.lex \
+	  --dico_build "S2T&T2S"
 	```
 	4. Perform word-for-word back-translation
 	```
