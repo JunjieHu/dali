@@ -54,12 +54,26 @@ The preprocessed data and pre-trained models can be found [here](https://drive.g
 
 The pre-trained model in the it domain can obtain the BLEU scores in the five domains as follows. After adaptation, the BLEU in the emea test set can be raised to *18.25* from *8.23*. The BLEU scores are slightly different from those in the paper since we used different NMT toolkits (fairseq v.s. OpenNMT), but we observed similar improvements as we found in the paper.
 
-| Out-of-domain | In-domain                                 |
-|               | ----------------------------------------- |
-|               | it    | emea | koran | subtitles | acquis | 
-| ------------- | ----- | ---- | ----- | --------- | ------ |
-| it            | 58.94 | 8.23 | 2.5   | 6.26      | 4.34   |
-
+<table>
+  <tr>
+    <th rowspan="2">Out-of-domain </th>
+    <th colspan="5"> In-domain </th>
+  </tr>
+    <td>it</td>
+    <td>emea</td>
+    <td>koran</td>
+    <td>subtitles</td>
+    <td>acquis</td>
+  </tr>
+  <tr>
+    <td>it</td>
+    <td>58.94</td>
+    <td>8.23</td>
+    <td>2.50</td>
+    <td>6.26</td>
+    <td>4.34</td>
+  </tr>
+</table>
 
 Demo
 ==
