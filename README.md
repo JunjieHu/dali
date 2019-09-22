@@ -50,6 +50,7 @@ The preprocessed data and pre-trained models can be found [here](https://drive.g
 - ***data-bin.tar.gz***: fairseq's binarized data.
 - ***it-de-en-epoch40.tar.gz***: fairseq's transformer model pre-trained on data in the it domain.
 - ***it2emea-de-en.tar.gz***: fairseq's transformer model adapted from it domain to emea domain using DALI-U.
+- ***S2T+T2S-de-en.lex***: the lexicon induced by DALI-U.
 
 Demo
 ==
