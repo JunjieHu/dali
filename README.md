@@ -50,7 +50,16 @@ The preprocessed data and pre-trained models can be found [here](https://drive.g
 - ***data-bin.tar.gz***: fairseq's binarized data.
 - ***it-de-en-epoch40.tar.gz***: fairseq's transformer model pre-trained on data in the it domain.
 - ***it2emea-de-en.tar.gz***: fairseq's transformer model adapted from it domain to emea domain using DALI-U.
-- ***S2T+T2S-de-en.lex***: the lexicon induced by DALI-U.
+- ***S2T+T2S-de-en.lex***: the lexicon induced by DALI-U. 
+
+The pre-trained model in the it domain can obtain the BLEU scores in the five domains as follows. After adaptation, the BLEU in the emea test set can be raised to *18.25* from *8.23*. The BLEU scores are slightly different from those in the paper since we used different NMT toolkits (fairseq v.s. OpenNMT), but we observed similar improvements as we found in the paper.
+
+| Out-of-domain | In-domain                                 |
+|               | ----------------------------------------- |
+|               | it    | emea | koran | subtitles | acquis | 
+| ------------- | ----- | ---- | ----- | --------- | ------ |
+| it            | 58.94 | 8.23 | 2.5   | 6.26      | 4.34   |
+
 
 Demo
 ==
