@@ -10,3 +10,6 @@
 	path = fairseq
 	url = https://github.com/pytorch/fairseq.git
 	branch = master
+[submodule "mosesdecoder"]
+	path = mosesdecoder
+	url = git://github.com/moses-smt/mosesdecoder.git
