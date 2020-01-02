@@ -6,10 +6,13 @@ import sys
 def read_lex(file, lex, s2t):
     punc = set(["?", ",", ".", "!", "$", "%", "^", "&", "*", "@", "~", "`" "-", "+", "_", "=", "{", "}", "[", "]", "<", ">", "/", "'", '"', "(", ")", ":", ";" ])
     for l in open(file):
-        s, t, p = l.strip().split(' ')
-        s = s.strip()
-        t = t.strip()
-        p = float(p)
+        items = l.strip().split(' ')
+        if len(items) not in [2, 3]:
+            print('Skip line={} with length={}'.format(l.strip(), len(items)))
+            continue
+        s = items[0].strip()
+        t = items[1].strip()
+        p = 1 if len(items) == 2 else float(items[2])
         if (s in punc or t in punc) and s != t:
             continue
         if s2t:

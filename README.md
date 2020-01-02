@@ -89,19 +89,19 @@ bash scripts/train.sh [GPU id]
 ```
 
 - Perform DALI's data augmentation
-	1. Train the word embeddings
+	1.1 (Unupervised Lexicon Induction) Train the word embeddings
 	```
 	bash scripts/train-embed.sh
 	```
-	2. Train the crosslingual embeddings by supervised lexicon induction
+	1.2 (Unupervised Lexicon Induction) Train the crosslingual embeddings by supervised lexicon induction
 	```
 	bash scripts/train-muse.sh [path to supervised seed lexicon]
 	```
-	3. Train the crosslingual embeddings by unsupervised lexicon induction
+	1.3 (Unupervised Lexicon Induction) Train the crosslingual embeddings by unsupervised lexicon induction
 	``` 
 	bash scripts/train-muse.sh
 	```
-	3. Obtain the word translation by nearest neighbor search
+	1.4 (Unupervised Lexicon Induction) Obtain the word translation by nearest neighbor search
 	```
 	python3 extract_lexicon.py \
 	  --src_emb $PWD/outputs/unsupervised-muse/debug/v1/vectors-de.txt \
@@ -109,7 +109,11 @@ bash scripts/train.sh [GPU id]
 	  --output $PWD/outputs/unsupervised-muse/debug/v1/S2T+T2S-de-en.lex \
 	  --dico_build "S2T&T2S"
 	```
-	4. Perform word-for-word back-translation
+    2.1 (Supervised Lexicon Induction) Obtain the word translation by GIZA++
+    ```
+    bash scripts/extract_lex_giza.sh
+    ```
+	3. Perform word-for-word back-translation
 	```
 	bash scripts/wfw_backtranslation.sh 
 	```	
