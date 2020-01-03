@@ -7,12 +7,14 @@ def read_lex(file, lex, s2t):
     punc = set(["?", ",", ".", "!", "$", "%", "^", "&", "*", "@", "~", "`" "-", "+", "_", "=", "{", "}", "[", "]", "<", ">", "/", "'", '"', "(", ")", ":", ";" ])
     for l in open(file):
         items = l.strip().split(' ')
-        if len(items) not in [2, 3]:
+        if len(items) != 3:
             print('Skip line={} with length={}'.format(l.strip(), len(items)))
             continue
         s = items[0].strip()
         t = items[1].strip()
         p = 1 if len(items) == 2 else float(items[2])
+        if len(s) == 0 or len(t) == 0:
+            continue
         if (s in punc or t in punc) and s != t:
             continue
         if s2t:
